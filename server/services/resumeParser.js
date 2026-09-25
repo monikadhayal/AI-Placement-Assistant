@@ -1,0 +1,1 @@
+// PDF se text nikalna
