@@ -2,7 +2,13 @@
 
 const express = require('express');
 const app = express();
-const port = 3000;
+require("dotenv").config();
+const connectDB = require("./config/db.js");
+const Schema = require("./models/User.js");
+Schema();
+connectDB();
+
+const port = process.env.PORT;
 
 app.get('/',(req,res) =>{
     console.log("hello world!!!!!!!!");
