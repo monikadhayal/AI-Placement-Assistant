@@ -7,6 +7,8 @@ const connectDB = require("./config/db.js");
 const router = require("./routes/auth.js");
 app.use(express.json());
 app.use("/api/auth", router);
+const resumeRoutes = require("./routes/resume.js");
+app.use("/api/resume", resumeRoutes);
 
 connectDB();
 
