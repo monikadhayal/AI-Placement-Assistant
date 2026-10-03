@@ -4,14 +4,13 @@ const express = require('express');
 const app = express();
 require("dotenv").config();
 const connectDB = require("./config/db.js");
-const Schema = require("./models/User.js");
-const router = requir("./routes/auth.js");
-router();
-Schema();
+const router = require("./routes/auth.js");
+app.use(express.json());
+app.use("/api/auth", router);
+
 connectDB();
 
 const port = process.env.PORT;
-app.use(express.json());
 
 app.get('/',(req,res) =>{
     console.log("hello world!!!!!!!!");
