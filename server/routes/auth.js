@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User.js');
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const protect = require("../middleware/auth.js");
 
 // register
 
@@ -45,5 +46,9 @@ router.post('/login', async(req,res) => {
         message: "Login successful" ,token:token});
     
 })
+
+router.get("/me", protect, (req, res) => {
+  res.json({ message: "You are logged in", userId: req.userId });
+});
 
 module.exports = router;
