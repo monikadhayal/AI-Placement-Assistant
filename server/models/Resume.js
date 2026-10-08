@@ -12,11 +12,14 @@ const resumeSchema = new mongoose.Schema(
     },
     extractedText: {
       type: String,
-    //   required: true,
+      //   required: true,
     },
     targetRole: {
       type: String,
       required: true,
+    },
+    analysis: {
+      type: mongoose.Schema.Types.Mixed,
     },
   },
   {
