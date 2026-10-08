@@ -26,7 +26,7 @@ routes/auth.js banaya, Router setup kiya
 Register route likha — email check, bcrypt se password hash, User save
 Login route likha — user dhoondo, bcrypt se password compare karo
 JWT token banana seekha (jsonwebtoken install), dono routes mein token add kiya
-middleware/auth.js (protect) banaya — token verify karके pata lagana "kaun login hai"
+middleware/auth.js (protect) banaya — token verify karकata lagana "kaun login hai"
 Protected route se test kiya (/me)
 
 
