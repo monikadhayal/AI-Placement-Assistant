@@ -7,9 +7,9 @@ export function AuthProvider({children}) {
     const[user,setUser] = useState(null);
 
     async function login(email,password){
-        const responce = await api.post("/auth/login", {email,password});
-        localStorage.setItem("token", responce.data.token);
-        setUser(responce.data.user);
+        const response = await api.post("/auth/login", {email,password});
+        localStorage.setItem("token", response.data.token);
+        setUser(response.data.user);
     } 
 
     function logout(){
