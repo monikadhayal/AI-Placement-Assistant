@@ -1,13 +1,21 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  return (
-    <>
-        Lakshay
-   </>   
-  )
+  function App() {
+ 
+    return (
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+            <h1>Lakshay</h1>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    );
+  }
 }
 
-export default App
+export default App;
