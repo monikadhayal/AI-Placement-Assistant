@@ -1,16 +1,44 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth.js";
+import { useNavigate } from "react-router-dom";
+
 export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error,setError] = useState("");
     const { login } = useAuth();
+
+      const navigate = useNavigate();
+
+            async function handleSubmit(e) {
+              e.preventDefault();
+              setError("");
+              try {
+                await login(email, password);
+                navigate("/");
+              } catch (err) {
+                setError("Invalid email or password");
+              }
+            }
+
+
+
       async function handleSubmit(e) {
         e.preventDefault();
-        await login(email, password);
+        setError("");
+        try {
+          await login(email, password);
+        } catch (err) {
+          setError("Invalid email or password");
+        }
       }
+
+
+
     return (
       <div>
         <h1>Login</h1>
+        {error && <p className="text-red-600 text-sm">{error}</p>}
         <form onSubmit={handleSubmit}>
           <input
             type="email"
